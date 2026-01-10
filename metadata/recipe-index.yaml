@@ -11,4 +11,15 @@ recipes:
     date_created: 2025-01-10
     status: active
     
+  - id: graphene-ti-au-hbn-encapsulated
+    path: recipes/graphene-contacts/ti-au-hbn-encapsulated.md
+    version: 1.0
+    doi: null
+    category: contacts
+    materials: [graphene, hBN, Ti, Au]
+    geometry: hall-bar
+    date_created: 2025-01-10
+    status: active
+    parent_recipe: graphene-ti-au-standard
+    
 # Add new recipes below
