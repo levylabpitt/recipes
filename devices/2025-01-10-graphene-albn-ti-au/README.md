@@ -11,7 +11,7 @@ Testing Ti/Au contact recipe on AlBN substrate instead of standard Si/SiO2.
 ## Key Modification
 
 - **Substrate**: AlBN (modified from standard Si/SiO2)
-- **Reason**: [Add your reason for using AlBN]
+- **Reason**: This is closer to the actual device structure we want.
 
 ## Directory Contents
 
