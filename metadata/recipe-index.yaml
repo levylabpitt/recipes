@@ -1,0 +1,14 @@
+# Recipe Index
+
+recipes:
+  - id: graphene-ti-au-standard
+    path: recipes/graphene-contacts/ti-au-standard.md
+    version: 1.0
+    doi: null
+    category: contacts
+    materials: [graphene, Ti, Au]
+    geometry: hall-bar
+    date_created: 2025-01-10
+    status: active
+    
+# Add new recipes below
