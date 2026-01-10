@@ -5,13 +5,13 @@ authors:
   - family-names: "Levy"
     given-names: "Jeremy"
     affiliation: "University of Pittsburgh"
-    orcid: "https://orcid.org/0000-0002-5666-2235"  # Update with your ORCID if different
+    orcid: "https://orcid.org/0000-0002-5666-2235"
 type: dataset
-repository-code: "https://github.com/[your-username]/recipes"  # Update with actual repo URL
+repository-code: "https://github.com/levylabpitt/recipes"
 keywords:
   - "2D materials"
   - "device fabrication"
   - "graphene"
   - "contacts"
   - "nanofabrication"
-license: CC-BY-4.0  # Or your preferred license
+license: CC-BY-4.0
