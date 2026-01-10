@@ -81,3 +81,11 @@ graph TD
 ## GDS Files
 
 Pattern used: `gds/hallbar-6contact.gds` (add your file here)
+
+### Layout Previews
+
+![Hall bar 6-contact pattern](gds/hallbar-6contact.svg)
+
+![Alignment marks](gds/alignment-marks.svg)
+
+*SVG previews are automatically generated from GDS files via GitHub Actions*
