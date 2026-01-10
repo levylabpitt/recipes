@@ -1,0 +1,10 @@
+# Fake placeholder image
+# In real use, replace with actual microscope images
+
+Image: Device after liftoff
+Magnification: 20x
+Date: 2025-01-10
+Metal contacts: Ti/Au clearly visible, clean edges
+Hall bar geometry: 6 contacts, properly aligned
+Liftoff quality: Excellent, no metal residue
+Notes: Ready for wire bonding

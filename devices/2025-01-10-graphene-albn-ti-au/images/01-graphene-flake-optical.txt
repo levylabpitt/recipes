@@ -1,0 +1,9 @@
+# Fake placeholder image
+# In real use, replace with actual microscope images
+
+Image: Graphene flake on AlBN substrate before processing
+Magnification: 50x
+Date: 2025-01-10
+Flake dimensions: ~15 μm × 10 μm
+Contrast: Monolayer graphene visible as light purple region
+Notes: Clean flake, no visible contamination or tears

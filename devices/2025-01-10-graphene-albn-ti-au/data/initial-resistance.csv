@@ -1,0 +1,21 @@
+# Fake resistance measurement data
+# In real use, replace with actual measurement CSV files
+
+# Two-terminal resistance measurements
+# Device: 2025-01-10-graphene-albn-ti-au
+# Date: 2025-01-10
+# Temperature: 300K
+# Contact pair, Resistance (Ohms)
+
+contact_1_2,1850
+contact_2_3,1920
+contact_3_4,1875
+contact_4_5,1900
+contact_5_6,1890
+contact_1_6,11200
+
+# Notes:
+# - Individual contact resistances ~1850-1920 Ohms
+# - Full device resistance ~11.2 kOhms
+# - Consistent values suggest good contact quality
+# - Ready for gate-dependent measurements
