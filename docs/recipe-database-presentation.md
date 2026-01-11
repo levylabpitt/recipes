@@ -23,9 +23,8 @@ A Git repository for tracking device fabrication:
 ```
 recipes/                    # General processes
 devices/                    # Your actual devices
-  ├── templates/            # Registry of good templates
   ├── 2025-01-10-device/    # Full documentation
-  └── 2025-01-11-variant.md # Diff from template
+  └── 2025-01-11-variant.md # Diff from another device
 instruments/                # Tool-specific metadata
 materials/                  # Batch tracking
 ```
@@ -93,15 +92,12 @@ materials/                  # Batch tracking
 
 ## Registering as Template
 
-Add to `devices/templates/TEMPLATES.md`:
+No special registration needed. Devices become references naturally when other devices cite them.
 
+Just reference it directly in your new device:
 ```markdown
-### Graphene Contacts on AlBN
-- **Device**: 2025-01-10-graphene-albn-ti-au
-- **Good for**: Any contacts on graphene/AlBN
+**Based on**: [2025-01-10-graphene-albn-ti-au](../2025-01-10-graphene-albn-ti-au/)
 ```
-
-Just a pointer - the actual documentation stays in the device folder.
 
 ---
 
@@ -204,9 +200,8 @@ Jan 15: Try Pd/Au variant
 recipes/
 ├── Base recipes (Ti/Au standard, etc)
 devices/
-├── templates/TEMPLATES.md ← Registry
-├── 2025-01-10-full-doc/ ← Template device
-└── 2025-01-11-diff.md ← Variant
+├── 2025-01-10-full-doc/ ← Referenced by others
+└── 2025-01-11-diff.md ← Points to 2025-01-10
 instruments/
 ├── ebeam-evaporators/
 └── lithography/
@@ -218,11 +213,11 @@ materials/
 
 ## Key Principles
 
-1. **No duplication** - First device IS the template
+1. **No duplication** - Devices are just devices, some get referenced
 2. **Document differences** - Variants are just diffs
 3. **Link everything** - Create traceable web
 4. **Update instruments** - Track tool-specific factors
-5. **Use AI** - Templates guide AI to generate compliant files
+5. **Use AI** - AI can generate diff files from examples
 
 ---
 

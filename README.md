@@ -50,17 +50,17 @@ These are **specific instances** where you used a recipe to make a device. Devic
 - Documents all adaptations and changes
 - Tracks process notes and results
 - Stores related files (GDS patterns, images, data)
-- Can become a template for future similar devices
+- Can be referenced by future similar devices
 
 **Diff documentation** (when building on an existing device):
 - Single markdown file (~20 lines)
-- Points to a previous device as template
+- Points to a previous device for context
 - Documents only what's different
 - Still links to results and files
 
-**Example (full)**: `devices/2025-01-10-graphene-albn-ti-au/` documents the first Ti/Au contacts on AlBN substrate - becomes the template for future AlBN devices.
+**Example (full)**: `devices/2025-01-10-graphene-albn-ti-au/` documents the first Ti/Au contacts on AlBN substrate.
 
-**Example (diff)**: `devices/2025-01-11-graphene-albn-cr-au.md` uses the above as template but with Cr/Au instead of Ti/Au.
+**Example (diff)**: `devices/2025-01-11-graphene-albn-cr-au.md` references the above but uses Cr/Au instead of Ti/Au.
 
 ### 3. Instruments (`instruments/` directory)
 
@@ -178,9 +178,9 @@ In your device README, after the Quick Summary, add:
 
 ---
 
-## Using Templates for Efficiency (Advanced)
+## Using Device References for Efficiency
 
-Once you've successfully made a device on a **new substrate or device type**, you can register it as a template to make future variants even easier.
+When you've successfully made a device on a **new substrate or device type**, future similar devices can reference it directly.
 
 ### The Two-Level System
 
@@ -188,10 +188,10 @@ Once you've successfully made a device on a **new substrate or device type**, yo
    Example: `recipes/graphene-contacts/ti-au-standard.md`
 
 2. **Devices** - Two types:
-   - **2a. First device** (full doc) - Becomes the template  
+   - **Full documentation** - When trying something new  
      Example: `devices/2025-01-10-graphene-albn-ti-au/`
-   - **2b. Variants** (diff only) - Just what's different  
-     Example: `devices/2025-01-11-graphene-albn-cr-au.md` (single file, ~20 lines)
+   - **Diff files** - When building on existing device  
+     Example: `devices/2025-01-11-graphene-albn-cr-au.md` (~20 lines)
 
 ### How It Works
 
@@ -203,37 +203,32 @@ devices/2025-01-10-graphene-albn-ti-au/
 └── ...
 ```
 
-**After success** - Register as template in `devices/templates/TEMPLATES.md`:
-```markdown
-### Graphene Contacts on AlBN
-- **Device**: [2025-01-10-graphene-albn-ti-au](../2025-01-10-graphene-albn-ti-au/)
-- **Good for**: Any contacts on graphene/AlBN
-```
-
-**The device folder IS the template** - no separate template file needed.
-
-**Future variants** - Just document the diff (single file):
+**Future similar devices** - Just document the diff:
 ```markdown
 # Device: 2025-01-11 Graphene/AlBN Cr/Au
 
-**Template**: [2025-01-10-graphene-albn-ti-au](../2025-01-10-graphene-albn-ti-au/)
+**Based on**: [2025-01-10-graphene-albn-ti-au](../2025-01-10-graphene-albn-ti-au/)
 
-## Diff from Template
+## Diff
 - Metal: Cr/Au (5/60nm) instead of Ti/Au (5/30nm)
 
 ## Results
 - Rc: 800 Ω·μm (vs 1200 for Ti/Au)
 ```
 
-**Benefits**:
-- First device: 150 lines (full doc, becomes the template)
-- TEMPLATES.md: Just a pointer, no duplication
-- Variants: 20 lines each
-- 10 variants = 300 lines total vs 1500 without templates
+### Benefits
 
-**Key insight:** Once you have a template example, AI can generate variant files following the same conventions for different processes.
+- First device: ~150 lines (full documentation)
+- Similar devices: ~20 lines (just the diff)
+- 10 variants = 350 lines total vs 1500 without references
 
-See [devices/templates/](devices/templates/) for the template registry and examples.
+### Discovery
+
+You'll discover which devices make good references naturally - they're the ones that get cited by other device files.
+
+### AI Assistance
+
+AI can generate diff files following conventions from existing device examples.
 
 ---
 
@@ -369,10 +364,7 @@ recipes/
 │   └── hBN-encapsulation/
 │       └── README.md
 ├── devices/               # Specific device runs
-│   ├── templates/         # Template registry (pointers only)
-│   │   ├── TEMPLATES.md   # List of template devices
-│   │   └── README.md
-│   ├── 2025-01-10-graphene-albn-ti-au/  # Full device (can be template)
+│   ├── 2025-01-10-graphene-albn-ti-au/  # Full device
 │   │   ├── README.md
 │   │   ├── recipe-used.md
 │   │   ├── gds/
@@ -399,7 +391,7 @@ recipes/
 This repository is for team use. Team members should:
 1. Create device runs following the structure above
 2. Update instrument and material files after use
-3. Follow the templates and examples
+3. Follow the examples
 4. Commit and push regularly
 5. Create base recipes for new processes
 
