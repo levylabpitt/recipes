@@ -19,24 +19,24 @@ Levy Lab, University of Pittsburgh
 ## The Problem
 
 **Traditional lab notebooks:**
-- 📓 Hard to search and compare
-- 🔒 Locked in one person's notebook
-- 📸 Photos scattered across phones/computers
-- ❓ "How did I make that device 6 months ago?"
-- 🤷 "Which e-beam did Sarah use for her best contacts?"
+- Hard to search and compare
+- Locked in one person's notebook
+- Photos scattered across phones/computers
+- "How did I make that device 6 months ago?"
+- "Which e-beam did Sarah use for her best contacts?"
 
-**Result:** Knowledge is lost, mistakes are repeated, reproducibility suffers.
+**Result:** Knowledge is lost, mistakes are repeated, reproducibility is difficult.
 
 ---
 
 ## Our Solution: Git + GitHub
 
 **A recipe database that is:**
-- ✅ **Shared** - Everyone sees what worked (and what didn't)
-- ✅ **Searchable** - Find similar devices instantly
-- ✅ **Versioned** - Track changes over time
-- ✅ **Linked** - Connect recipes → devices → instruments → results
-- ✅ **Permanent** - Recipes get DOIs for citations
+- **Shared** - Everyone sees what worked (and what didn't)
+- **Searchable** - Find similar devices instantly
+- **Versioned** - Track changes over time
+- **Linked** - Connect recipes → devices → instruments → results
+- **Permanent** - Recipes get DOIs for citations
 
 Think: **Wikipedia for your lab's fabrication processes**
 
@@ -135,7 +135,7 @@ After your first AlBN device works:
 - Rc: 800 Ω·μm (vs 1200 for Ti/Au)
 ```
 
-**That's it!** Single file, ~20 lines.
+**That's it.** Single file, ~20 lines.
 
 ---
 
@@ -165,7 +165,7 @@ After your first AlBN device works:
    - AlBN-specific adaptations
    - Process notes as you go
    - Images and data
-4. **It works!** ✅
+4. **It works!**
 
 **Effort:** Full documentation (~2 hours to set up)
 
@@ -184,7 +184,7 @@ Add entry to `devices/templates/TEMPLATES.md`:
 - **Key adaptations**: HMDS prime, optical contrast
 ```
 
-**That's it** - just a pointer, no duplication!
+**That's it** - just a pointer, no duplication.
 
 **Effort:** 5 minutes
 
@@ -215,7 +215,7 @@ Add entry to `devices/templates/TEMPLATES.md`:
 2. **Template-based** - Use minimal diff format
 3. **Conversation with Claude** - Describe what you want
 
-**All three work!** Choose what fits your workflow.
+**All three work.** Choose what fits your workflow.
 
 ---
 
@@ -317,7 +317,7 @@ Search shows:
 - Sarah's S1813 was 1 month old, yours is 4 months old
 - Sarah used lot #12345 Ti pellets, you used lot #67890
 
-**Actionable insights!**
+**Actionable insights.**
 
 ---
 
@@ -342,7 +342,7 @@ Search shows:
 - Same device over time (batch effects)
 - Different people making "same" device
 
-**All linked and searchable!**
+**All linked and searchable.**
 
 ---
 
@@ -407,7 +407,7 @@ Jan 20: Try 100nm Au
    - Add your results
 5. **Update instrument files** after using tools
 
-**That's it!**
+**That's it.**
 
 ---
 
@@ -462,27 +462,27 @@ Jan 20: Try 100nm Au
 
 **You'll know it's working when:**
 
-✅ New students can onboard faster
-✅ You find old device info in seconds
-✅ You understand why results vary
-✅ Collaborators cite your methods
-✅ You actually use it (low overhead!)
+- New students can onboard faster
+- You find old device info in seconds
+- You understand why results vary
+- Collaborators cite your methods
+- You use it consistently (low overhead)
 
 ---
 
 ## Common Questions
 
 **Q: Isn't this a lot of work?**
-A: First time yes, but templates make it fast after that.
+A: First time yes, but templates make it faster afterward.
 
 **Q: What if I'm not good with Git?**
 A: GitHub Desktop makes it point-and-click.
 
 **Q: Do I need to document failed attempts?**
-A: No, but noting what didn't work helps others.
+A: Optional, but noting what didn't work can help others.
 
 **Q: Can I use this for other projects?**
-A: Yes! The system works for any experimental lab.
+A: Yes. The system works for any experimental lab.
 
 ---
 
@@ -561,7 +561,7 @@ https://github.com/levylabpitt/recipes/tree/main/devices/2025-01-10-graphene-alb
 - Machine learning on successful parameters
 - Lab equipment calendar integration
 
-**It's a living system!**
+**It's a living system.**
 
 ---
 
@@ -584,13 +584,13 @@ https://github.com/levylabpitt/recipes/tree/main/devices/2025-01-10-graphene-alb
 
 **Recipe Database = Lab Notebook + Version Control + Linking**
 
-- 📚 Organized, searchable, permanent
-- 🔗 Everything connected
-- ⚡ Templates minimize overhead
-- 🤝 Knowledge shared across team
-- 📊 Better science through reproducibility
+- Organized, searchable, permanent
+- Everything connected
+- Templates minimize overhead
+- Knowledge shared across team
+- Better science through reproducibility
 
-**Start today:** https://github.com/levylabpitt/recipes
+**Repository:** https://github.com/levylabpitt/recipes
 
 ---
 
@@ -602,4 +602,4 @@ https://github.com/levylabpitt/recipes/tree/main/devices/2025-01-10-graphene-alb
 
 **Repository:** https://github.com/levylabpitt/recipes
 
-**Get started:** Clone it and make your first device!
+**Get started:** Clone it and make your first device.
