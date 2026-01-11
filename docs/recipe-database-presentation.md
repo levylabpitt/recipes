@@ -165,9 +165,9 @@ After your first AlBN device works:
    - AlBN-specific adaptations
    - Process notes as you go
    - Images and data
-4. **It works!**
+4. **It works.**
 
-**Effort:** Full documentation (~2 hours to set up)
+**Creates reusable template for future AlBN devices**
 
 ---
 
@@ -186,8 +186,6 @@ Add entry to `devices/templates/TEMPLATES.md`:
 
 **That's it** - just a pointer, no duplication.
 
-**Effort:** 5 minutes
-
 ---
 
 ## User Workflow: Use Template
@@ -198,12 +196,10 @@ Add entry to `devices/templates/TEMPLATES.md`:
 > "New device like 2025-01-10 but with Cr/Au and 60nm Au"
 
 **Claude generates:**
-- Single markdown file
+- Single markdown file (~20 lines)
 - Points to template
 - Documents only the diff
 - Ready to commit
-
-**Effort:** 5 minutes
 
 ---
 
@@ -212,10 +208,12 @@ Add entry to `devices/templates/TEMPLATES.md`:
 **Three ways to create devices:**
 
 1. **Manual** - Create folders and files yourself
-2. **Template-based** - Use minimal diff format
-3. **Conversation with Claude** - Describe what you want
+2. **Template-based** - Single diff file (~20 lines)
+3. **Conversation with Claude** - Describe what you want, AI generates the file
 
 **All three work.** Choose what fits your workflow.
+
+**Key insight:** Once you have a template example, AI can generate variant files following the same conventions for different processes.
 
 ---
 
@@ -288,7 +286,7 @@ Link to official pages: https://www.nano.pitt.edu/facilities
 - Rate stability notes
 - Links to all devices that used it
 
-**Updated after each use** (~2 minutes)
+**Updated after each use**
 
 ---
 
@@ -444,17 +442,17 @@ Jan 20: Try 100nm Au
 
 ## Documentation Overhead
 
-**First device on new substrate:**
-- 2 hours to document fully
-- Creates reusable template
+**Initial setup:**
+- First device on new substrate: Full documentation (creates reusable template)
+- Template registration: Add pointer to registry
 
 **Subsequent variants:**
-- 5 minutes to create diff file
-- Or chat with Claude
+- Single diff file (~20 lines)
+- Or conversation with AI to generate following template conventions
 
-**After 10 devices:** 
-- Time saved: ~18 hours vs traditional notebooks
-- Quality: Much better organized and searchable
+**Key advantage:** 
+- Template examples guide AI to generate compliant files for different processes
+- Minimal overhead once template exists
 
 ---
 
