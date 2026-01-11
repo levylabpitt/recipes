@@ -129,6 +129,64 @@ alignment-marks.gds.
 - **Document as you go**: It's easier than trying to remember everything later
 - **Ask questions**: If you're unsure about something, ask the team or check existing device runs for examples
 
+## Tracking Instruments and Materials
+
+### Why track instruments?
+
+Nominally "identical" recipes can give different results depending on:
+- Which deposition tool you used (different base pressures, calibrations)
+- How old the photoresist is
+- When metal pellets were last replaced
+- Tool-specific quirks and calibrations
+
+By tracking these details, we can identify patterns and improve reproducibility.
+
+### Instruments
+
+The `instruments/` directory tracks lab-specific information about equipment:
+- Tooling factors and calibrations
+- Material batches currently loaded
+- Performance quirks
+- Tips and tricks
+
+**We don't duplicate NFCF documentation.** Instead, we link to the [official NFCF pages](https://www.nano.pitt.edu/facilities) and add only our lab-specific notes.
+
+**In your device run**, reference specific instruments:
+```markdown
+**Instruments used:**
+- E-beam evaporator: [Thermionics SB60A](../../instruments/ebeam-evaporators/thermionics-ebeam-sb60a.md)
+- Mask aligner: [Quintel Q4000](../../instruments/lithography/quintel-q4000.md)
+```
+
+**After using an instrument**, update its file with:
+- Tooling factors (if you measured actual vs nominal thickness)
+- Any issues or quirks you noticed
+- A link back to your device run
+
+### Materials
+
+The `materials/` directory tracks consumable batches:
+- When bottles were opened
+- Batch/lot numbers
+- Performance notes
+- When exhausted
+
+**In your device run**, reference specific batches:
+```markdown
+**Materials used:**
+- Photoresist: [S1813 batch 2024-12](../../materials/photoresists/s1813-tracker.md#s1813-2024-12)
+- Ti pellets: [Lesker lot #12345](../../materials/metals/ti-pellets-tracker.md#lot-12345)
+```
+
+This helps identify when performance changes are due to aged materials vs. process variations.
+
+### Best practices for linking
+
+- **Link liberally** - instruments, materials, related devices
+- **Update as you go** - add tooling factors and notes while it's fresh
+- **Check existing files first** - see if someone already documented the quirk you noticed
+- **Use anchor links** for specific batches: `#s1813-2024-12`
+
 ## Creating a new base recipe
 
 If you're developing a new process:
