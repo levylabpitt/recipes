@@ -1,6 +1,6 @@
-# Device Documentation Hierarchy
+# The Two-Level System
 
-## Three Levels of Abstraction
+## Simple Hierarchy
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -9,139 +9,85 @@
 │                                                         │
 │ • Complete process for standard substrate (Si/SiO2)    │
 │ • Version controlled, gets DOI                         │
-│ • Hundreds of lines, comprehensive                     │
-│ • Used across many substrate types                     │
+│ • Comprehensive documentation                          │
 └─────────────────────────────────────────────────────────┘
                         ↓
 ┌─────────────────────────────────────────────────────────┐
-│ Level 2: DEVICE TEMPLATES (Substrate/Context Specific) │
-│ devices/templates/graphene-albn-contacts.md            │
+│ Level 2a: FIRST DEVICE (Full Documentation)            │
+│ devices/2025-01-10-graphene-albn-ti-au/                │
 │                                                         │
-│ • Adapted for specific substrate (AlBN)                │
-│ • Captures what's different from base recipe           │
-│ • Validated by first successful run                    │
-│ • ~100 lines, focused on substrate-specific details    │
-│ • Reused for all AlBN contact devices                  │
+│ • Full documentation of AlBN adaptation                │
+│ • IS the template (no separate template file)          │
+│ • Listed in TEMPLATES.md registry                      │
 └─────────────────────────────────────────────────────────┘
                         ↓
 ┌─────────────────────────────────────────────────────────┐
-│ Level 3: DEVICE RUNS (Just the Diff)                   │
+│ Level 2b: VARIANT DEVICES (Just the Diff)              │
 │ devices/2025-01-11-graphene-albn-cr-au.md              │
 │                                                         │
-│ • Only what's different from template                  │
-│ • Metal stack change, parameter variations             │
-│ • Process deviations that occurred                     │
-│ • Results and comparisons                              │
-│ • ~20 lines, ultra minimal                             │
+│ • Points to 2025-01-10 device                          │
+│ • Only documents what's different                      │
+│ • ~20 lines                                            │
 └─────────────────────────────────────────────────────────┘
 ```
 
-## How Information Flows
+## No Redundancy
 
-### Creating First Device on New Substrate
-```
-You → Full documentation (100+ lines)
-     → devices/2025-01-10-graphene-albn-ti-au/README.md
-     → Everything documented because it's new
-```
+**Base Recipe** → One place  
+**First Successful Device** → One place (IS the template)  
+**TEMPLATES.md** → Just pointers to successful devices  
+**Variant Devices** → Just diffs  
 
-### After Success: Create Template
-```
-You → Extract pattern from successful run
-     → devices/templates/graphene-albn-contacts.md
-     → "Here's what works for AlBN contacts"
-```
+**Total:** No information is duplicated anywhere.
 
-### Subsequent Devices: Diff Only
+## Example Flow
+
+### Step 1: Make First AlBN Device
 ```
-You → "Cr/Au instead of Ti/Au, 60nm Au"
-Claude → Generates 20-line diff file
-You → Commit, done
+devices/2025-01-10-graphene-albn-ti-au/
+├── README.md (full doc)
+├── recipe-used.md
+└── ...
 ```
 
-## The Conversation Flow
-
-### Scenario 1: New Substrate (Full Doc)
-**You**: "First time making contacts on AlBN, using Ti/Au standard recipe"
-
-**Claude**: "Since this is your first AlBN device, I'll create full documentation. You can turn this into a template after it works."
-→ Creates comprehensive device run
-
-### Scenario 2: Create Template
-**You**: "Yesterday's AlBN device worked great. Make it a template."
-
-**Claude**: "I'll extract the AlBN-specific details from your device run into a reusable template."
-→ Creates `templates/graphene-albn-contacts.md`
-
-### Scenario 3: Use Template (Minimal)
-**You**: "New device using AlBN template, but Cr/Au with 60nm Au"
-
-**Claude**: "Just the diff then! What's different and what happened?"
-→ Creates 20-line diff-based device file
-
-## Benefits
-
-### For First Device on New Substrate:
-- ✅ Full documentation captures everything
-- ✅ Becomes reference for future work
-- ✅ Can be promoted to template when validated
-
-### For Template:
-- ✅ Captures substrate/context-specific knowledge
-- ✅ One place to update when process improves
-- ✅ New students can reference this
-- ✅ Shows typical results and issues
-
-### For Routine Variations:
-- ✅ Minimal overhead (~5 minutes)
-- ✅ Only record what matters (the diff)
-- ✅ Easy comparison across variants
-- ✅ Still linked to full context
-
-## Real-World Usage
-
-```
-Jan 10: Make first AlBN device
-        → Full doc (100 lines)
-        → Works! Rc = 1200 Ω·μm
-
-Jan 10: Extract to template
-        → Templates/graphene-albn-contacts.md
-        → Documents AlBN-specific process
-
-Jan 11: Try Cr/Au variant
-        → Diff file (20 lines): "Cr/Au 5/60"
-        → Works! Rc = 800 Ω·μm
-
-Jan 15: Try Pd/Au variant  
-        → Diff file (20 lines): "Pd/Au 5/40"
-        → Result: Rc = 650 Ω·μm
-
-Jan 20: Try 100nm Au
-        → Diff file (20 lines): "Ti/Au 5/100"
-        → Result: Rc = 700 Ω·μm
+### Step 2: Register It
+Add to `templates/TEMPLATES.md`:
+```markdown
+### Graphene Contacts on AlBN
+- **Device**: 2025-01-10-graphene-albn-ti-au
 ```
 
-**Four variants documented in ~100 total lines instead of 400+**
+### Step 3: Make Variants
+`devices/2025-01-11-graphene-albn-cr-au.md`:
+```markdown
+**Template**: 2025-01-10-graphene-albn-ti-au
+**Diff**: Cr/Au instead of Ti/Au
+```
 
-## File Sizes in Practice
+## Why No Separate Template Files?
 
-- **Base recipe**: 300 lines (comprehensive, reusable)
-- **First device**: 150 lines (full documentation)
-- **Template**: 100 lines (extracted pattern)
-- **Variant devices**: 20 lines each (diff only)
+Because they would duplicate information from the first device.
 
-**10 device variants** = 1 template (100) + 10 diffs (200) = **300 lines total**
+**The first successful device already contains:**
+- Substrate-specific adaptations
+- Validated parameters
+- Known issues
+- Typical results
 
-**Without templates** = 10 × 150 = **1500 lines** with tons of repetition
+**Why duplicate it?** Just point to it.
 
-## The Key Insight
+## What If the Template Device Changes?
 
-**Don't repeat yourself across devices that share a context.**
+If you update the first device (e.g., improve the process), all variant devices automatically see the update since they're just pointing to it.
 
-- Different substrates → Different templates
-- Different device types → Different templates  
-- Same substrate, different metals → Use template, just diff
-- Same everything, different batch → Ultra-minimal diff
+This is a **feature**, not a bug.
 
-You're capturing **variation**, not **repetition**.
+## Summary
+
+Two levels:
+1. **Base recipes** - General processes
+2. **Devices** - Some are full docs (templates), some are diffs (variants)
+
+**TEMPLATES.md** = Index of which devices make good templates
+
+**That's it.** No extra layer, no duplication.
