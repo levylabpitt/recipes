@@ -167,6 +167,62 @@ In your device README, after the Quick Summary, add:
 
 ---
 
+## Using Templates for Efficiency (Advanced)
+
+Once you've successfully made a device on a **new substrate or device type**, you can register it as a template to make future variants even easier.
+
+### The Three-Level System
+
+1. **Base Recipes** (most general) - Complete process for standard substrates  
+   Example: `recipes/graphene-contacts/ti-au-standard.md`
+
+2. **Template Devices** (substrate-specific) - First successful adaptation  
+   Example: `devices/2025-01-10-graphene-albn-ti-au/` becomes a template for AlBN devices
+
+3. **Variant Devices** (diff only) - Just what's different from the template  
+   Example: `devices/2025-01-11-graphene-albn-cr-au.md` (single file, ~20 lines)
+
+### How It Works
+
+**First device on new substrate** - Document everything:
+```
+devices/2025-01-10-graphene-albn-ti-au/
+├── README.md (full documentation)
+├── recipe-used.md
+└── ...
+```
+
+**After success** - Register as template in `devices/templates/TEMPLATES.md`:
+```markdown
+### Graphene Contacts on AlBN
+- **Reference device**: [2025-01-10-graphene-albn-ti-au](../2025-01-10-graphene-albn-ti-au/)
+- **Use for**: Any contacts on graphene/AlBN
+- **Key adaptations**: HMDS prime required, different optical contrast
+```
+
+**Future variants** - Just document the diff (single file):
+```markdown
+# Device: 2025-01-11 Graphene/AlBN Cr/Au
+
+**Template**: [2025-01-10-graphene-albn-ti-au](../2025-01-10-graphene-albn-ti-au/)
+
+## Diff from Template
+- Metal: Cr/Au (5/60nm) instead of Ti/Au (5/30nm)
+
+## Results
+- Rc: 800 Ω·μm (vs 1200 for Ti/Au)
+```
+
+**Benefits**:
+- ✅ First device: 150 lines (full doc)
+- ✅ Template: Just a pointer, no duplication
+- ✅ Variants: 20 lines each
+- ✅ 10 variants = 300 lines total vs 1500 without templates
+
+See [devices/templates/](devices/templates/) for the template registry and examples.
+
+---
+
 ## Why this structure?
 
 **Efficiency**: You don't need to copy the entire recipe every time. Just reference the base recipe and note what's different.
@@ -299,12 +355,16 @@ recipes/
 │   └── hBN-encapsulation/
 │       └── README.md
 ├── devices/               # Specific device runs
-│   └── 2025-01-10-graphene-albn-ti-au/
-│       ├── README.md
-│       ├── recipe-used.md
-│       ├── gds/
-│       ├── images/
-│       └── data/
+│   ├── templates/         # Template registry (pointers only)
+│   │   ├── TEMPLATES.md   # List of template devices
+│   │   └── README.md
+│   ├── 2025-01-10-graphene-albn-ti-au/  # Full device (can be template)
+│   │   ├── README.md
+│   │   ├── recipe-used.md
+│   │   ├── gds/
+│   │   ├── images/
+│   │   └── data/
+│   └── 2025-01-11-graphene-albn-cr-au.md  # Variant (diff only)
 ├── instruments/           # Equipment tracking
 │   ├── README.md
 │   ├── ebeam-evaporators/
