@@ -1,6 +1,6 @@
 # Device: 2025-01-11 Graphene/AlBN Cr/Au
 
-**Template**: [graphene-albn-contacts](templates/graphene-albn-contacts.md)  
+**Template**: [2025-01-10-graphene-albn-ti-au](2025-01-10-graphene-albn-ti-au/)  
 **Date**: 2025-01-11
 
 ## Diff from Template
