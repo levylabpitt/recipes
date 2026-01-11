@@ -171,16 +171,16 @@ In your device README, after the Quick Summary, add:
 
 Once you've successfully made a device on a **new substrate or device type**, you can register it as a template to make future variants even easier.
 
-### The Three-Level System
+### The Two-Level System
 
 1. **Base Recipes** (most general) - Complete process for standard substrates  
    Example: `recipes/graphene-contacts/ti-au-standard.md`
 
-2. **Template Devices** (substrate-specific) - First successful adaptation  
-   Example: `devices/2025-01-10-graphene-albn-ti-au/` becomes a template for AlBN devices
-
-3. **Variant Devices** (diff only) - Just what's different from the template  
-   Example: `devices/2025-01-11-graphene-albn-cr-au.md` (single file, ~20 lines)
+2. **Devices** - Two types:
+   - **2a. First device** (full doc) - Becomes the template  
+     Example: `devices/2025-01-10-graphene-albn-ti-au/`
+   - **2b. Variants** (diff only) - Just what's different  
+     Example: `devices/2025-01-11-graphene-albn-cr-au.md` (single file, ~20 lines)
 
 ### How It Works
 
@@ -195,10 +195,11 @@ devices/2025-01-10-graphene-albn-ti-au/
 **After success** - Register as template in `devices/templates/TEMPLATES.md`:
 ```markdown
 ### Graphene Contacts on AlBN
-- **Reference device**: [2025-01-10-graphene-albn-ti-au](../2025-01-10-graphene-albn-ti-au/)
-- **Use for**: Any contacts on graphene/AlBN
-- **Key adaptations**: HMDS prime required, different optical contrast
+- **Device**: [2025-01-10-graphene-albn-ti-au](../2025-01-10-graphene-albn-ti-au/)
+- **Good for**: Any contacts on graphene/AlBN
 ```
+
+**The device folder IS the template** - no separate template file needed.
 
 **Future variants** - Just document the diff (single file):
 ```markdown
@@ -214,10 +215,12 @@ devices/2025-01-10-graphene-albn-ti-au/
 ```
 
 **Benefits**:
-- ✅ First device: 150 lines (full doc)
-- ✅ Template: Just a pointer, no duplication
-- ✅ Variants: 20 lines each
-- ✅ 10 variants = 300 lines total vs 1500 without templates
+- First device: 150 lines (full doc, becomes the template)
+- TEMPLATES.md: Just a pointer, no duplication
+- Variants: 20 lines each
+- 10 variants = 300 lines total vs 1500 without templates
+
+**Key insight:** Once you have a template example, AI can generate variant files following the same conventions for different processes.
 
 See [devices/templates/](devices/templates/) for the template registry and examples.
 
