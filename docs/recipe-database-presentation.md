@@ -2,8 +2,8 @@
 marp: true
 theme: default
 paginate: true
-header: '2D Materials Device Fabrication Recipe Database'
-footer: 'Levy Lab - University of Pittsburgh'
+header: 2D Materials Device Fabrication Recipe Database
+footer: Levy Lab - University of Pittsburgh
 ---
 
 <!-- _class: lead -->
