@@ -43,13 +43,24 @@ Each base recipe contains:
 
 ### 2. Device Runs (`devices/` directory)
 
-These are **specific instances** where you used a recipe to make a device. Each device run:
-- References a base recipe
-- Documents what you changed (if anything)
-- Tracks your process notes and results
-- Stores related files (GDS patterns, images, data)
+These are **specific instances** where you used a recipe to make a device. Device runs come in two types:
 
-**Example**: `devices/2025-01-10-graphene-albn-ti-au/` documents using the Ti/Au standard recipe with an AlBN substrate instead of Si/SiO2.
+**Full documentation** (when trying something new):
+- References a base recipe
+- Documents all adaptations and changes
+- Tracks process notes and results
+- Stores related files (GDS patterns, images, data)
+- Can become a template for future similar devices
+
+**Diff documentation** (when building on an existing device):
+- Single markdown file (~20 lines)
+- Points to a previous device as template
+- Documents only what's different
+- Still links to results and files
+
+**Example (full)**: `devices/2025-01-10-graphene-albn-ti-au/` documents the first Ti/Au contacts on AlBN substrate - becomes the template for future AlBN devices.
+
+**Example (diff)**: `devices/2025-01-11-graphene-albn-cr-au.md` uses the above as template but with Cr/Au instead of Ti/Au.
 
 ### 3. Instruments (`instruments/` directory)
 
