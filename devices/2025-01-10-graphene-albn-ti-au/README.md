@@ -1,5 +1,9 @@
 # Device Run: Graphene on AlBN with Ti/Au Contacts
 
+## Quick Summary
+
+Following the Ti/Au standard recipe (graphene-ti-au-standard v1.0) with one modification: **substrate changed from Si/SiO2 to AlBN** to match the target device structure. This substrate change introduces uncertainties in optical contrast (may need adjusted lighting/filters), Ti adhesion characteristics, resist adhesion, and liftoff behavior on AlBN. Expected challenges include different optical identification conditions and uncharacterized surface interactions. GDS patterns: hallbar-6contact.gds and alignment-marks.gds.
+
 **Date**: 2025-01-10  
 **Base Recipe**: [ti-au-standard](../../recipes/graphene-contacts/ti-au-standard.md)  
 **Device ID**: 2025-01-10-graphene-albn-ti-au
