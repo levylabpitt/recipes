@@ -26,7 +26,7 @@ We maintain standardized fabrication recipes for:
 
 The repository has four main parts:
 
-### 1. Base Recipes (`recipes/` directory)
+### 1. Base Recipes ([`recipes/`]())
 
 These are the **standard, reusable protocols** organized by category:
 - `recipes/graphene-contacts/` - contact fabrication methods
@@ -41,7 +41,7 @@ Each base recipe contains:
 
 **Example**: `recipes/graphene-contacts/ti-au-standard.md` is our standard Ti/Au contact recipe for graphene on Si/SiO2.
 
-### 2. Device Runs (`devices/` directory)
+### 2. Device Runs ([`devices/`]())
 
 These are **specific instances** where you used a recipe to make a device. Device runs come in two types:
 
@@ -62,7 +62,7 @@ These are **specific instances** where you used a recipe to make a device. Devic
 
 **Example (diff)**: `devices/2025-01-11-graphene-albn-cr-au.md` references the above but uses Cr/Au instead of Ti/Au.
 
-### 3. Instruments (`instruments/` directory)
+### 3. Instruments ([`instruments/`]())
 
 Lab-specific tracking for fabrication equipment:
 - Tooling factors and calibrations
@@ -72,7 +72,7 @@ Lab-specific tracking for fabrication equipment:
 
 See [instruments/README.md](instruments/README.md) for complete list.
 
-### 4. Materials (`materials/` directory)
+### 4. Materials ([`materials/`]())
 
 Tracking consumable batches:
 - When bottles were opened
